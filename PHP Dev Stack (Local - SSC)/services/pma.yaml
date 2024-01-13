@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  pma:
+    container_name: phpmyadmin
+    build:
+      context: ../build/pma
+      dockerfile: Dockerfile
+    ports:
+      - "8888:443"
+    env_file:
+      - ../env/pma.env
+    depends_on:
+      - mdb
+      - php_fpm_service

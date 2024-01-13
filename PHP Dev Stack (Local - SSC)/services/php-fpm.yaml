@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  php_fpm_service:
+    container_name: php_fpm_service
+    build:
+      context: ../build/php_fpm
+      dockerfile: Dockerfile
+    volumes:
+      - ../project/neonspace.com:/var/www/neonspace.com:ro
+    ports:
+      - "9003:9003"
