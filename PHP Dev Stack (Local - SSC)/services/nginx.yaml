@@ -1,15 +1,15 @@
 version: "3.8"
 
 services:
-  nginx:
-    container_name: nginx
-    build:
-      context: "../build/nginx"
-      dockerfile: "Dockerfile"
-    volumes:
-      - ../project/neonspace.com:/var/www/neonspace.com:ro
-    ports:
-      - "80:80"
-      - "443:443"
-    depends_on:
-      - php_fpm_service
+    nginx:
+        container_name: nginx
+        build:
+            context: "../build/nginx"
+            dockerfile: "Dockerfile"
+        volumes:
+            - ../project:/var/www/your_(domain)_dir:ro
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - php_fpm_service

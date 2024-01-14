@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  mdb:
+    container_name: mariadb
+    build:
+      context: ../build/mdb
+      dockerfile: Dockerfile
+    volumes:
+      - mdb:/var/lib/mysql:rw
+    ports:
+      - "3306:3306"
+    env_file:
+      - ../env/mdb.env
+    depends_on:
+      - nginx_proxy_manager
+
+volumes:
+  mdb:

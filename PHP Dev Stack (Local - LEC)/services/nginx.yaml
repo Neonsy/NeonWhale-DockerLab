@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: "../build/nginx"
+      dockerfile: "Dockerfile"
+    volumes:
+      - ../project:/var/www/your_(domain)_dir:ro
+    # ports:
+    #   - "8000:80"
+    #   - "4433:443"
+    depends_on:
+      - php_fpm_service
+      - nginx_proxy_manager

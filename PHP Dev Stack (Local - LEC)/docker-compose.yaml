@@ -1,0 +1,10 @@
+version: "3.8"
+name: "web_stack_with_proxy"
+
+include:
+  - ./services/nginx.yaml
+  - ./services/php-fpm.yaml
+  - ./services/pma.yaml
+  - ./services/mdb.yaml
+  - ./services/nginx_proxy_manager.yaml
+  
